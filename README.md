@@ -29,7 +29,7 @@ pip install -r requirements.txt
 ```
 
 
-## Suppression for real image
+## 🎊 Suppression for real image
 ```
 python suppress_eot_w_nulltext.py  --type 'Real-Image' \
                                    --prompt "A man with a beard wearing glasses and a hat in blue shirt" \
