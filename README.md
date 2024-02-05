@@ -50,6 +50,7 @@ python suppress_eot_w_nulltext.py  --type 'Real-Image' --inversion NPI\
 ```
 
 
+
 [//]: # (## Suppression for generated image)
 
 [//]: # (```)
@@ -63,3 +64,10 @@ python suppress_eot_w_nulltext.py  --type 'Real-Image' --inversion NPI\
 [//]: # (                                  --alpha '&#40;1.,&#41;' --cross_retain_steps '&#40;.3,&#41;')
 
 [//]: # (```)
+
+
+## Contact
+Should you have any questions, please contact senmaonk@gmail.com
+
+
+**Acknowledgment:** This code is based on the [P2P, Null-text](https://github.com/google/prompt-to-prompt) repository. 
