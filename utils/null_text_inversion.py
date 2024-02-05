@@ -172,8 +172,8 @@ class NullInversion:
             print("DDIM inversion...")
         image_rec, ddim_latents = self.ddim_inversion(image_gt)
 
-        assert inversion in ['Null-text', 'Negative-prompt-inversion']
-        if inversion == 'Null-text':
+        assert inversion in ['NT', 'NPI']
+        if inversion == 'NI':
             print("Null-text optimization...")
             uncond_embeddings = self.null_optimization(ddim_latents, num_inner_steps, early_stop_epsilon)
         else:

@@ -351,16 +351,16 @@ def load_model(sd_version):
         raise ValueError('Unsupported stable diffusion version')
 
     ldm_stable = StableDiffusionPipeline.from_pretrained(stable_diffusion_version, scheduler=scheduler).to(device)
-    try:
-        ldm_stable.disable_xformers_memory_efficient_attention()
-    except AttributeError:
-        print("Attribute disable_xformers_memory_efficient_attention() is missing")
+    # try:
+    #     ldm_stable.disable_xformers_memory_efficient_attention()
+    # except AttributeError:
+    #     print("Attribute disable_xformers_memory_efficient_attention() is missing")
     return ldm_stable
 
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--type', type=str, default='Real-Image', choices=['Generated-Image', 'Real-Image'], help='the type of remove')
-    parser.add_argument('--inversion', type=str, default='Null-text', help='Null-text, Negative-prompt-inversion')
+    parser.add_argument('--inversion', type=str, default='NT', help='NT (Null-text), NPI (Negative-prompt-inversion)')
     parser.add_argument('--sd_version', type=str, default='sd_1_4', help='use sd_1_4 or sd_1_5')
     parser.add_argument('--seed', type=int, default=2, help='seed for generated image of stable diffusion')
     parser.add_argument('--prompt', type=str, default='A man with a beard wearing glasses and a hat in blue shirt', help='prompt for generated or real image')
@@ -374,7 +374,7 @@ def parse_args():
     parser.add_argument('--lambda_erase', type=float, default=-.5, help='lambda for cross attention erase loss')
     parser.add_argument('--lambda_self_retain', type=float, default=1., help='lambda for self attention retain loss')
     parser.add_argument('--lambda_self_erase', type=float, default=-.5, help='lambda for self attention erase loss')
-    parser.add_argument('--method', type=str, default='soft-weight', help='soft-weight, alpha, beta, delete')
+    parser.add_argument('--method', type=str, default='soft-weight', help='soft-weight, alpha, beta, delete, weight')
     args = parser.parse_args()
     return args
 

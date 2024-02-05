@@ -28,19 +28,28 @@ environment or python libraries:
 pip install -r requirements.txt
 ```
 
-## Suppression for generated image
-```
-python suppress_content_w_eot.py  --type 'Generated-Image' \
-                                  --prompt "A man without glasses" --seed 2 \
-                                  --token_indices "[[4],]" \
-                                  --alpha '(1.,)' --cross_retain_steps '(.3,)'
-```
 
 ## Suppression for real image
 ```
 python suppress_content_w_eot.py  --type 'Real-Image' \
-                                  --prompt "A man with a beard wearing glasses and a beanie in blue shirt" \
-                                  --token_indices "[[5],[7],[10],]" \
-                                  --alpha '(1.,)' --cross_retain_steps '(.2,.3,.4,)' --max_step_to_erase 20
+                                  --prompt "A man with a beard wearing glasses and a hat in blue shirt" \
+                                  --image_path ./example_images/A man with a beard wearing glasses and a hat in blue shirt.jpg
+                                  --token_indices "[[4,5],[7],[9,10],]" \
+                                  --alpha '(1.,)' --cross_retain_steps '(.2,)'
 ```
 
+
+
+[//]: # (## Suppression for generated image)
+
+[//]: # (```)
+
+[//]: # (python suppress_content_w_eot.py  --type 'Generated-Image' \)
+
+[//]: # (                                  --prompt "A man without glasses" --seed 2 \)
+
+[//]: # (                                  --token_indices "[[4],]" \)
+
+[//]: # (                                  --alpha '&#40;1.,&#41;' --cross_retain_steps '&#40;.3,&#41;')
+
+[//]: # (```)
