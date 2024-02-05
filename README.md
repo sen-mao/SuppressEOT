@@ -31,11 +31,11 @@ pip install -r requirements.txt
 
 ## Suppression for real image
 ```
-python suppress_content_w_eot.py  --type 'Real-Image' \
-                                  --prompt "A man with a beard wearing glasses and a hat in blue shirt" \
-                                  --image_path ./example_images/A man with a beard wearing glasses and a hat in blue shirt.jpg
-                                  --token_indices "[[4,5],[7],[9,10],]" \
-                                  --alpha '(1.,)' --cross_retain_steps '(.2,)'
+python suppress_eot_w_nulltext.py  --type 'Real-Image' \
+                                   --prompt "A man with a beard wearing glasses and a hat in blue shirt" \
+                                   --image_path ./example_images/A man with a beard wearing glasses and a hat in blue shirt.jpg
+                                   --token_indices "[[4,5],[7],[9,10],]" \
+                                   --alpha '(1.,)' --cross_retain_steps '(.2,)'
 ```
 
 
