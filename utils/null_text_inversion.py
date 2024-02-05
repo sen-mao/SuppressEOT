@@ -164,18 +164,22 @@ class NullInversion:
         return uncond_embeddings_list
 
     def invert(self, image_path: str, prompt: str, offsets=(0, 0, 0, 0), num_inner_steps=10, early_stop_epsilon=1e-5,
-               verbose=False):
+               inversion='Null-text', verbose=False):
         self.init_prompt(prompt)
         ptp_utils.register_attention_control(self.model, None)
         image_gt = load_512(image_path, *offsets)
         if verbose:
             print("DDIM inversion...")
         image_rec, ddim_latents = self.ddim_inversion(image_gt)
-        if verbose:
+
+        assert inversion in ['Null-text, Negative-prompt-inversion']
+        if inversion == 'Null-text':
             print("Null-text optimization...")
-        # uncond_embeddings = self.null_optimization(ddim_latents, num_inner_steps, early_stop_epsilon/)
-        uncond_embeddings, cond_embeddings = self.context.chunk(2)
-        uncond_embeddings = [cond_embeddings] * NUM_DDIM_STEPS
+            uncond_embeddings = self.null_optimization(ddim_latents, num_inner_steps, early_stop_epsilon)
+        else:
+            print("Negative prompt inversion...")
+            uncond_embeddings, cond_embeddings = self.context.chunk(2)
+            uncond_embeddings = [cond_embeddings] * NUM_DDIM_STEPS
         return (image_gt, image_rec), ddim_latents[-1], uncond_embeddings
 
     def __init__(self, model):

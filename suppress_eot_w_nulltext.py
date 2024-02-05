@@ -390,13 +390,14 @@ def main(args, stable):
     """
 
     del args.seed
+    inversion = args.inversion
     image_path = args.image_path
     prompt = args.prompt
     print(args)
 
     # Null-text inversion
     null_inversion = NullInversion(stable)
-    (image_gt, image_enc), x_t, uncond_embeddings = null_inversion.invert(image_path, prompt, verbose=True)
+    (image_gt, image_enc), x_t, uncond_embeddings = null_inversion.invert(image_path, prompt, inversion, verbose=True)
 
     n = len(stable.tokenizer.encode(args.prompt))
 
