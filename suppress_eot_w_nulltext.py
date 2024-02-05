@@ -352,7 +352,7 @@ def load_model(sd_version):
 
     ldm_stable = StableDiffusionPipeline.from_pretrained(stable_diffusion_version, scheduler=scheduler).to(device)
     try:
-        ldm_stable.enable_xformers_memory_efficient_attention()
+        ldm_stable.disable_xformers_memory_efficient_attention()
     except AttributeError:
         print("Attribute disable_xformers_memory_efficient_attention() is missing")
     return ldm_stable
