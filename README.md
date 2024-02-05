@@ -1,4 +1,4 @@
-# Get What You Want, Not What You Don't: Image Content Suppression for Text-to-Image Diffusion Models (ICLR'24)</sub>
+# Official Implementations "Get What You Want, Not What You Don't: Image Content Suppression for Text-to-Image Diffusion Models" (ICLR'24)</sub>
 
 
 
