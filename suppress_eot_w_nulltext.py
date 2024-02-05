@@ -15,8 +15,7 @@ from utils import ptp_utils, wo_utils
 from utils.null_text_inversion import NullInversion
 from losses.attn_loss import AttnLoss
 
-scheduler = DDIMScheduler(beta_start=0.00085, beta_end=0.012, beta_schedule="scaled_linear", clip_sample=False, set_alpha_to_one=False)
-MY_TOKEN = ''
+scheduler = DDIMScheduler(beta_start=0.00085, beta_end=0.012, beta_schedule="scaled_linear", clip_sample=False, set_alpha_to_one=False, steps_offset=1)
 LOW_RESOURCE = True
 NUM_DDIM_STEPS = 50
 GUIDANCE_SCALE = 7.5
@@ -351,7 +350,7 @@ def load_model(sd_version):
     else:
         raise ValueError('Unsupported stable diffusion version')
 
-    ldm_stable = StableDiffusionPipeline.from_pretrained(stable_diffusion_version, use_auth_token=MY_TOKEN, scheduler=scheduler).to(device)
+    ldm_stable = StableDiffusionPipeline.from_pretrained(stable_diffusion_version, scheduler=scheduler).to(device)
     try:
         ldm_stable.enable_xformers_memory_efficient_attention()
     except AttributeError:
@@ -364,9 +363,9 @@ def parse_args():
     parser.add_argument('--inversion', type=str, default='Null-text', help='Null-text, Negative-prompt-inversion')
     parser.add_argument('--sd_version', type=str, default='sd_1_4', help='use sd_1_4 or sd_1_5')
     parser.add_argument('--seed', type=int, default=2, help='seed for generated image of stable diffusion')
-    parser.add_argument('--prompt', type=str, default='A man with a beard wearing glasses and a beanie in blue shirt', help='prompt for generated or real image')
-    parser.add_argument('--image_path', type=str, default='./example_images/A man with a beard wearing glasses and a beanie in blue shirt.jpg', help='image path')
-    parser.add_argument('--token_indices', type=ast.literal_eval, default='[[5],[7],[10]]', help='index for without word')  # List[int]
+    parser.add_argument('--prompt', type=str, default='A man with a beard wearing glasses and a hat in blue shirt', help='prompt for generated or real image')
+    parser.add_argument('--image_path', type=str, default='./example_images/A man with a beard wearing glasses and a hat in blue shirt.jpg', help='image path')
+    parser.add_argument('--token_indices', type=ast.literal_eval, default='[[4,5],[7],[9,10]]', help='index for without word')  # List[int]
     parser.add_argument('--cross_retain_steps', type=ast.literal_eval, default='[.2,]', help='perform the "wo" punish when step >= cross_wo_steps')  # .0 == τ=1.0, .1 == τ=0.9, .2 == τ=0.8
     parser.add_argument('--alpha', type=ast.literal_eval, default='[1.,]', help="punishment ratio")
     parser.add_argument('--max_step_to_erase', type=int, default=20, help='erase/suppress max step of diffusion model')
@@ -397,7 +396,7 @@ def main(args, stable):
 
     # Null-text inversion
     null_inversion = NullInversion(stable)
-    (image_gt, image_enc), x_t, uncond_embeddings = null_inversion.invert(image_path, prompt, inversion, verbose=True)
+    (image_gt, image_enc), x_t, uncond_embeddings = null_inversion.invert(image_path, prompt, inversion=inversion, verbose=True)
 
     n = len(stable.tokenizer.encode(args.prompt))
 
