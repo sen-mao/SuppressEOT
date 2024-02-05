@@ -1,4 +1,4 @@
-# Get What You Want, Not What You Don't: Image Content Suppression for Text-to-Image Diffusion Models</sub>
+# Get What You Want, Not What You Don't: Image Content Suppression for Text-to-Image Diffusion Models (ICLR'24)</sub>
 
 ![Random Sample](./docs/supresseot_results.png)
 
