@@ -102,6 +102,9 @@ python suppress_eot_w_nulltext.py  --type Real-Image \
 
 
 ## 📐 Quantitative comparison
+Following [Inst-Inpaint](https://arxiv.org/abs/2304.03246), we use FID and CLIP Accuracy to evaluate the accuracy of the removal operation on the GQA-Inpaint dataset. We achieve superior suppression results and higher CLIP
+Accuracy scores on the GQA-Inpaint dataset.
+
 There are 18883 pairs of test data in the GQA-Inpaint dataset, including source image, target image, and prompt. Inst-Inpaint attempts to remove objects from the source image based on the provided prompt as an instruction (e.g., "Remove the airplane at the center"). We suppress the noun immediately following "remove" in the instruction (e.g., "airplane") and use the remaining part, deleting the word "remove" at the beginning of the instruction to form our input prompt (e.g., "The airplane at the center").
 
 ![Random Sample](./docs/GQA-Inpaint.jpg)
