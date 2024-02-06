@@ -11,6 +11,10 @@
 
 ## 👀 Observation
 
+![Random Sample](./docs/observation.jpg)
+
+Existing text-to-image models can encounter challenges in effectively suppressing the generation of the negative target. For example, when requesting an image using the prompt "a face without glasses",  the diffusion models (i.e., SD) synthesize the subject without "glasses", as shown in Figure (the first column).  However, when using the prompt "a man without glasses", both SD and DeepFloyd-IF models still generate the subject with "glasses" (It also happens in both *Ideogram* and *Mijourney* models, see Appendix F),  as shown in Figure (the second and fifth columns).   Figure (the last column) quantitatively show that SD has 0.819 *DetScore* for "glasses" using 1000 randomly generated images, indicating a very common failure cases in diffusion models.  Also, when giving the prompt "a man", often the glasses are included, see Figure (the third and sixth columns).  
+
 ## 🛠️ Method Overview
 <span id="method-overview"></span>
 
