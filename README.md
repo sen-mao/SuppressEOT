@@ -90,7 +90,6 @@ python suppress_eot_w_nulltext.py  --type Real-Image \
 ## Contact
 Should you have any questions, please contact senmaonk@gmail.com
 
-#### --- Thanks for your interest! --- ####
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=sen-mao/SuppressEOT)
+**Thanks for your interest!** ![visitors](https://visitor-badge.laobi.icu/badge?page_id=sen-mao/SuppressEOT)
 
 **Acknowledgment:** This code is based on the [P2P, Null-text](https://github.com/google/prompt-to-prompt) repository. 
