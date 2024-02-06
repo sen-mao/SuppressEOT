@@ -55,8 +55,13 @@ python suppress_eot_w_nulltext.py  --type Real-Image --inversion NPI\
 ```
 
 ## 🎊 Suppression for generated image
-
-
+```shell
+python suppress_eot_w_nulltext.py --type Generated-Image \
+                                  --prompt "A dog in Van Gogh Style" --seed 2023 \
+                                  --token_indices "[[4,5,6],]" \
+                                  --alpha "[1.,]" --cross_retain_steps "[.2,]" --iter_each_step 0
+```
+![Random Sample](./docs/supresseot_results_gen.jpg)
 
 ## 🪄 Additional application
 
