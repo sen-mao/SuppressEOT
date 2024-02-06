@@ -31,40 +31,36 @@ pip install -r requirements.txt
 
 ## 🎊 Suppression for real image
 ```shell
-python suppress_eot_w_nulltext.py  --type 'Real-Image' \
+python suppress_eot_w_nulltext.py  --type Real-Image \
                                    --prompt "A man with a beard wearing glasses and a hat in blue shirt" \
                                    --image_path "./example_images/A man with a beard wearing glasses and a hat in blue shirt.jpg" \
                                    --token_indices "[[4,5],[7],[9,10],]" \
-                                   --alpha '[1.,]' --cross_retain_steps '[.2,]'
+                                   --alpha "[1.,]" --cross_retain_steps "[.2,]"
 ```
-
 ![Random Sample](./docs/supresseot_results.png)
 
 You can use **NPI** (Negative Prompt Inversion) for faster inversion of the real image, but it may lead to a certain degree of degradation in editing quality:
 ```shell
-python suppress_eot_w_nulltext.py  --type 'Real-Image' --inversion NPI\
+python suppress_eot_w_nulltext.py  --type Real-Image --inversion NPI\
                                    --prompt "A man with a beard wearing glasses and a hat in blue shirt" \
                                    --image_path "./example_images/A man with a beard wearing glasses and a hat in blue shirt.jpg" \
                                    --token_indices "[[4,5],[7],[9,10],]" \
-                                   --alpha '[1.,]' --cross_retain_steps '[.2,]'
+                                   --alpha "[1.,]" --cross_retain_steps "[.2,]"
 ```
 
 
 
-[//]: # (## Suppression for generated image)
+## 🪄 Additional application
 
-[//]: # (```)
+### Generating subjects for generated image ([Attend-and-Excite](https://arxiv.org/abs/2301.13826) similar results)
 
-[//]: # (python suppress_content_w_eot.py  --type 'Generated-Image' \)
-
-[//]: # (                                  --prompt "A man without glasses" --seed 2 \)
-
-[//]: # (                                  --token_indices "[[4],]" \)
-
-[//]: # (                                  --alpha '&#40;1.,&#41;' --cross_retain_steps '&#40;.3,&#41;')
-
-[//]: # (```)
-
+```
+python suppress_eot_w_nulltext.py  --type Generated-Image \
+                                   --prompt "A painting of an elephant with glasses" --seed 16 \
+                                   --token_indices "[[7],]" \
+                                   --alpha "[-0.001,]" --cross_retain_steps "[.2,]"
+```
+![Random Sample](./docs/generating_subjects.jpg)
 
 ## Contact
 Should you have any questions, please contact senmaonk@gmail.com

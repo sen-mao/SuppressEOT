@@ -439,7 +439,7 @@ def main_gen(args, stable):
         for cross_retain_steps in args.cross_retain_steps:
             for alpha in args.alpha:
                 g_cpu = torch.Generator().manual_seed(args.seed)
-                print(f'|----------Suppress different word for text embedding (Generated-Image): token_indices={token_indices}, alpha={alpha}, cross_retain_steps(1-tau)={cross_retain_steps}----------|')
+                print(f'|----------Suppress EOT (Generated-Image): token_indices={token_indices}, alpha={alpha}, cross_retain_steps(1-tau)={cross_retain_steps}----------|')
                 controller = AttentionStore(token_indices, alpha, args.method, cross_retain_steps, n, args.iter_each_step, args.max_step_to_erase,
                                             lambda_retain=args.lambda_retain, lambda_erase=args.lambda_erase, lambda_self_retain=args.lambda_self_retain, lambda_self_erase=args.lambda_self_erase)
                 tau = round(1.0 - cross_retain_steps, 3)
