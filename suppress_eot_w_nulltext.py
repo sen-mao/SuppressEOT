@@ -344,9 +344,9 @@ def load_model(sd_version):
     device = torch.device('cuda:0') if torch.cuda.is_available() else torch.device('cpu')
 
     if sd_version == "sd_1_4":
-        stable_diffusion_version = "/data/CompVis/stable-diffusion-v1-4"  # TODO
+        stable_diffusion_version = "CompVis/stable-diffusion-v1-4"
     elif sd_version == "sd_1_5":
-        stable_diffusion_version = "/data/runwayml/stable-diffusion-v1-5"
+        stable_diffusion_version = "runwayml/stable-diffusion-v1-5"
     else:
         raise ValueError('Unsupported stable diffusion version')
 
