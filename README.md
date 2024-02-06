@@ -52,7 +52,7 @@ python suppress_eot_w_nulltext.py  --type Real-Image --inversion NPI\
 
 ## 🪄 Additional application
 
-### Generating subjects for generated image ([Attend-and-Excite](https://arxiv.org/abs/2301.13826) similar results ()
+### 1️⃣ Generating subjects for generated image ([Attend-and-Excite](https://arxiv.org/abs/2301.13826) similar results ()
 
 ```
 python suppress_eot_w_nulltext.py  --type Generated-Image \
@@ -62,7 +62,19 @@ python suppress_eot_w_nulltext.py  --type Generated-Image \
 ```
 ![Random Sample](./docs/generating_subjects.jpg)
 
-### Adding subjects for real image ([GLIGEN](https://arxiv.org/abs/2301.07093) similar results)
+### 2️⃣ Adding subjects for real image ([GLIGEN](https://arxiv.org/abs/2301.07093) similar results)
+
+```
+python suppress_eot_w_nulltext.py  --type Real-Image \
+                                   --prompt "A car near trees with raining" \
+                                   --image_path "./example_images/A car near trees.jpg" \
+                                   --token_indices "[[6],]" \
+                                   --alpha "[-0.001,]" --cross_retain_steps "[.2,]"
+```
+![Random Sample](./docs/adding_subjects.jpg)
+
+
+### 3️⃣ Replacing subject in the real image with another
 
 ```
 python suppress_eot_w_nulltext.py  --type Real-Image \
