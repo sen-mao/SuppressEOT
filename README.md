@@ -63,6 +63,8 @@ python suppress_eot_w_nulltext.py --type Generated-Image \
 ```
 ![Random Sample](./docs/supresseot_results_gen.jpg)
 
+Our method can suppress copyrighted materials and memorized images from pretrained text-to-image diffusion models, such as [ESD](https://arxiv.org/abs/2303.07345), [Concept-ablation](https://arxiv.org/abs/2303.13516) and [Forget-Me-Not](https://arxiv.org/abs/2303.17591), and it is training-free.
+
 ## 🪄 Additional application
 
 ### 1️⃣ Generating subjects for generated image ([Attend-and-Excite](https://arxiv.org/abs/2301.13826) similar results)
