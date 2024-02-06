@@ -109,6 +109,8 @@ There are 18883 pairs of test data in the GQA-Inpaint dataset, including source 
 
 ![Random Sample](./docs/GQA-Inpaint.jpg)
 
+Outputs for GQA-Inpaint in [Inst-Inpaint](https://drive.google.com/file/d/1xBKNEcxjF5Hk4a_PrUmQqTe25Oz1qQMq/view?usp=sharing) and [Ours](https://drive.google.com/file/d/1mcd4mzTlbo4lHC6eEn36s1ZsmtWrbcyR/view?usp=sharing).
+
 ## Contact
 Should you have any questions, please contact senmaonk@gmail.com
 
