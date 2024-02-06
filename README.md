@@ -45,7 +45,7 @@ python suppress_eot_w_nulltext.py  --type Real-Image \
 ```
 ![Random Sample](./docs/supresseot_results.png)
 
-You can use **NPI** (Negative Prompt Inversion) for faster inversion of the real image, but it may lead to a certain degree of degradation in editing quality:
+You can use **NPI** ([Negative Prompt Inversion](https://arxiv.org/abs/2305.16807)) for faster inversion of the real image, but it may lead to a certain degree of degradation in editing quality:
 ```shell
 python suppress_eot_w_nulltext.py  --type Real-Image --inversion NPI\
                                    --prompt "A man with a beard wearing glasses and a hat in blue shirt" \
