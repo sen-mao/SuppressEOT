@@ -1,6 +1,6 @@
 # Official Implementations "Get What You Want, Not What You Don't: Image Content Suppression for Text-to-Image Diffusion Models" (ICLR'24)</sub>
 
-
+[![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2402.05375)
 
 [//]: # (**Get What You Want, Not What You Don't: Image Content Suppression for Text-to-Image Diffusion Models**<br>)
 <hr />
