@@ -111,6 +111,22 @@ There are 18883 pairs of test data in the GQA-Inpaint dataset, including source 
 
 Outputs for GQA-Inpaint in [Inst-Inpaint](https://drive.google.com/file/d/1xBKNEcxjF5Hk4a_PrUmQqTe25Oz1qQMq/view?usp=sharing) and [Ours](https://drive.google.com/file/d/1mcd4mzTlbo4lHC6eEn36s1ZsmtWrbcyR/view?usp=sharing).
 
+
+## 🤝🏻 Citation
+<span id="citation"></span>
+
+```bibtex
+@misc{li2023stylediffusion,
+      title={StyleDiffusion: Prompt-Embedding Inversion for Text-Based Editing}, 
+      author={Senmao Li and Joost van de Weijer and Taihang Hu and Fahad Shahbaz Khan and Qibin Hou and Yaxing Wang and Jian Yang},
+      year={2023},
+      eprint={2303.15649},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
+
 ### Contact
 Should you have any questions, please contact senmaonk@gmail.com
 
