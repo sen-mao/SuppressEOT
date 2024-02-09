@@ -1,6 +1,6 @@
 # Official Implementations "Get What You Want, Not What You Don't: Image Content Suppression for Text-to-Image Diffusion Models" (ICLR'24)</sub>
 
-[![SuppressEOT](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2402.05375) [![arXiv](https://img.shields.io/badge/arXiv-1234.56789-b31b1b.svg)](https://arxiv.org/abs/1234.56789)
+[![arXiv](https://img.shields.io/badge/arXiv-SuppressEOT-<COLOR>.svg)](https://arxiv.org/abs/2402.05375) [![arXiv](https://img.shields.io/badge/paper-SuppressEOT-b31b1b.svg)](https://arxiv.org/pdf/2402.05375.pdf)
 
 [//]: # (**Get What You Want, Not What You Don't: Image Content Suppression for Text-to-Image Diffusion Models**<br>)
 <hr />
