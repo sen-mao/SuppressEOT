@@ -116,11 +116,11 @@ Outputs for GQA-Inpaint in [Inst-Inpaint](https://drive.google.com/file/d/1xBKNE
 <span id="citation"></span>
 
 ```bibtex
-@misc{li2023stylediffusion,
-      title={StyleDiffusion: Prompt-Embedding Inversion for Text-Based Editing}, 
+@misc{li2024want,
+      title={Get What You Want, Not What You Don't: Image Content Suppression for Text-to-Image Diffusion Models}, 
       author={Senmao Li and Joost van de Weijer and Taihang Hu and Fahad Shahbaz Khan and Qibin Hou and Yaxing Wang and Jian Yang},
-      year={2023},
-      eprint={2303.15649},
+      year={2024},
+      eprint={2402.05375},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
