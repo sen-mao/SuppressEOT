@@ -412,7 +412,7 @@ def main(args, stable):
                 tau = round(1.0 - cross_retain_steps, 3)
                 image_inv, x_t = run_and_display(stable, [prompt], controller, latent=x_t, uncond_embeddings=uncond_embeddings, verbose=False)
                 print("showing from left to right: the ground truth image, the vq-autoencoder reconstruction, the null-text inverted image, the suppressed image")
-                ptp_utils.view_images([image_gt, image_enc, image_inv[0], image_inv[1]], save_name=f'{outdir}/soft-alpha{alpha}-tau{tau}-token_idx{token_indices}-image')
+                ptp_utils.view_images([image_gt, image_enc, image_inv[0], image_inv[1]], save_name=f'{outdir}/{args.method}{alpha}-tau{tau}-token_idx{token_indices}-image')
                 # show_cross_attention(stable, prompt, controller, 16, ["up", "down"], save_name=f'{outdir}/soft-weight{alpha}-tau{tau}-token_idx{token_indices}-attn')
 
 ## suppression for generated image
@@ -445,7 +445,7 @@ def main_gen(args, stable):
                 tau = round(1.0 - cross_retain_steps, 3)
                 image_inv, x_t = run_and_display(stable, [prompt], controller, latent=None, generator=g_cpu, uncond_embeddings=None, verbose=False)
                 print("showing from left to right: the ground truth image, the suppressed image")
-                ptp_utils.view_images([image_inv[0], image_inv[1]], save_name=f'{outdir}/soft-alpha{alpha}-tau{tau}-token_idx{token_indices}-image')
+                ptp_utils.view_images([image_inv[0], image_inv[1]], save_name=f'{outdir}/{args.method}{alpha}-tau{tau}-token_idx{token_indices}-image')
                 # show_cross_attention(stable, prompt, controller, 16, ["up", "down"], save_name=f'{outdir}/soft-weight{alpha}-tau{tau}-token_idx{token_indices}-attn')
 
 if __name__=="__main__":
