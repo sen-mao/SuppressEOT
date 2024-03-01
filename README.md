@@ -143,7 +143,7 @@ Outputs for GQA-Inpaint in [Inst-Inpaint](https://drive.google.com/file/d/1xBKNE
 Should you have any questions, please contact senmaonk@gmail.com
 
 ### License
-The code and models in this repository are licensed under the MIT License for academic and other non-commercial uses.
+The code in this repository is licensed under the MIT License for academic and other non-commercial uses.
 
 [//]: # (For commercial use of the code and models, separate commercial licensing is available. Please contact authors.)
 
