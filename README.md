@@ -115,6 +115,10 @@ python suppress_eot_w_nulltext.py  --type Real-Image \
 ![Random Sample](./docs/additional_apps.jpg)
 
 
+## ⚗️Work in progress
+
+![Random Sample](./docs/work_in_progress.jpg)
+
 ## 📐 Quantitative comparison
 Following [Inst-Inpaint](https://arxiv.org/abs/2304.03246), we use FID and CLIP Accuracy to evaluate the accuracy of the removal operation on the GQA-Inpaint dataset. We achieve superior suppression results and higher CLIP
 Accuracy scores on the GQA-Inpaint dataset.
