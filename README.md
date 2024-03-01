@@ -144,7 +144,8 @@ Should you have any questions, please contact senmaonk@gmail.com
 
 ### License
 The code and models in this repository are licensed under the MIT License for academic and other non-commercial uses.
-For commercial use of the code and models, separate commercial licensing is available. Please contact authors.
+
+[//]: # (For commercial use of the code and models, separate commercial licensing is available. Please contact authors.)
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=sen-mao/SuppressEOT)
 
