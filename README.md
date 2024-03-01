@@ -43,7 +43,7 @@ python suppress_eot_w_nulltext.py  --type Real-Image \
                                    --token_indices "[[4,5],[7],[9,10],]" \
                                    --alpha "[1.,]" --cross_retain_steps "[.2,]"
 ```
-![Random Sample](./docs/supresseot_results.png)
+![Random Sample](./docs/supresseot_results.jpg)
 
 You can use **NPI** ([Negative-prompt Inversion](https://arxiv.org/abs/2305.16807)) for faster inversion of the real image, but it may lead to a certain degree of degradation in editing quality:
 ```shell
@@ -127,6 +127,10 @@ Outputs for GQA-Inpaint in [Inst-Inpaint](https://drive.google.com/file/d/1xBKNE
 
 ### Contact
 Should you have any questions, please contact senmaonk@gmail.com
+
+### License
+The code and models in this repository are licensed under the MIT License for academic and other non-commercial uses.
+For commercial use of the code and models, separate commercial licensing is available. Please contact authors.
 
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=sen-mao/SuppressEOT)
 
