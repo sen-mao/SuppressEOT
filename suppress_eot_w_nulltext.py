@@ -150,13 +150,13 @@ def aggregate_attention(attention_store: AttentionStore, res: int, from_where: L
     for location in from_where:
         for item in attention_maps[f"{location}_{'cross' if is_cross else 'self'}"]:
             if item.shape[1] == num_pixels:
-                cross_maps = item.reshape(1, -1, res, res, item.shape[-1])[select]
+                cross_maps = item.reshape(2, -1, res, res, item.shape[-1])[select]
                 out.append(cross_maps)
     out = torch.cat(out, dim=0)
     out = out.sum(0) / out.shape[0]
     return out.cpu()
 
-def show_self_attention(attention_store: AttentionStore, res: int, from_where: List[str], select: int = 0):
+def show_self_attention(attention_store: AttentionStore, res: int, from_where: List[str], select: int = 0, save_name='self-attn-map'):
     attention_maps = aggregate_attention(attention_store, res, from_where, False, select)
     images = []
     for i in range(attention_maps.shape[2]):
@@ -168,7 +168,7 @@ def show_self_attention(attention_store: AttentionStore, res: int, from_where: L
         image = image.transpose(2, 0, 1)
         images.append(image[None, :])
     images = np.concatenate(images)
-    ptp_utils.save_image_grid(images, f'self-attn-map.png', grid_size=(16, 16))
+    ptp_utils.save_image_grid(images, f'{save_name}.png', grid_size=(16, 16))
 
 def show_cross_attention(stable, prompt, attention_store: AttentionStore, res: int, from_where: List[str], select: int = 0, save_name='cross-attn-map'):
     tokens = stable.tokenizer.encode(prompt)
@@ -413,7 +413,10 @@ def main(args, stable):
                 image_inv, x_t = run_and_display(stable, [prompt], controller, latent=x_t, uncond_embeddings=uncond_embeddings, verbose=False)
                 print("showing from left to right: the ground truth image, the vq-autoencoder reconstruction, the null-text inverted image, the suppressed image")
                 ptp_utils.view_images([image_gt, image_enc, image_inv[0], image_inv[1]], save_name=f'{outdir}/{args.method}{alpha}-tau{tau}-token_idx{token_indices}-image')
-                # show_cross_attention(stable, prompt, controller, 16, ["up", "down"], save_name=f'{outdir}/soft-weight{alpha}-tau{tau}-token_idx{token_indices}-attn')
+                show_cross_attention(stable, prompt, controller, 16, ["up", "down"], select=1,  # select=0 for SD, select=1 for SuppressEOT
+                                     save_name=f'{outdir}/soft-weight{alpha}-tau{tau}-token_idx{token_indices}-cross-attn')
+                show_self_attention(controller, 16, ["up", "down"], select=1,  # select=0 for SD, select=1 for SuppressEOT
+                                     save_name=f'{outdir}/soft-weight{alpha}-tau{tau}-token_idx{token_indices}-self-attn')
 
 ## suppression for generated image
 def main_gen(args, stable):
