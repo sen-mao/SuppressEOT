@@ -17,11 +17,14 @@ Existing text-to-image models can encounter challenges in effectively suppressin
 
 [//]: # (## 🛠️ Method Overview)
 
+[//]: # ()
 [//]: # (<span id="method-overview"></span>)
 
 [//]: # ()
+[//]: # ()
 [//]: # (![Random Sample]&#40;./docs/overview.jpg&#41;)
 
+[//]: # ()
 [//]: # ()
 [//]: # (Overview of the proposed method. &#40;a&#41; We devise  a negative target embedding matrix $\boldsymbol\chi$: $\boldsymbol\chi = [\boldsymbol{c}^{NE},\boldsymbol{c}^{EOT}\_0, \cdots, \boldsymbol{c}^{EOT}\_{N-{|\boldsymbol{p}|-2}}]$.  We perform SVD for the embedding matrix $\boldsymbol\chi=\textbf{\emph{U}}{\boldsymbol\Sigma}{\textbf{\emph{V}}}^T$. We introduce a soft-weight regularization &#40;SWR&#41; for each largest eigenvalue. Then  we recover the embedding matrix $\hat{\boldsymbol\chi}=\textbf{\emph{U}}{\hat{\boldsymbol\Sigma}}{\textbf{\emph{V}}}^T$. &#40;b&#41; We propose inference-time text embedding optimization &#40;ITO&#41;.  We align the attention maps of both $\boldsymbol{c}^{PE}$ and  $\boldsymbol{\hat{c}}^{PE}$, and widen  the ones of  both $\boldsymbol{c}^{NE}$ and $\boldsymbol{\hat{c}}^{NE}$.)
 
@@ -134,11 +137,11 @@ Outputs for GQA-Inpaint in [Inst-Inpaint](https://drive.google.com/file/d/1xBKNE
 <span id="citation"></span>
 
 ```bibtex
-@article{li2024get,
+@inproceedings{li2023get,
   title={Get What You Want, Not What You Don't: Image Content Suppression for Text-to-Image Diffusion Models},
-  author={Li, Senmao and van de Weijer, Joost and Hu, Taihang and Khan, Fahad Shahbaz and Hou, Qibin and Wang, Yaxing and Yang, Jian},
-  journal={arXiv preprint arXiv:2402.05375},
-  year={2024}
+  author={Li, Senmao and van de Weijer, Joost and Khan, Fahad and Hou, Qibin and Wang, Yaxing and others},
+  booktitle={The Twelfth International Conference on Learning Representations},
+  year={2023}
 }
 ```
 
