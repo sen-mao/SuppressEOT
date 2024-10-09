@@ -28,7 +28,7 @@ def punish_wight(wo_batch, latent_size, alpha, method):
                 dist = cdist(wo_batch[:,0].unsqueeze(0).cpu(), _wo_batch[:,0].unsqueeze(0).cpu(), metric='cosine')
                 print(f'The distance between the word embedding before and after the punishment: {dist}')
             if alpha == -.001:
-                s *= (torch.exp(-.001 * s) * 1.2)  # strengthen objects (our Appendix.F)
+                s *= (torch.exp(.001 * s) * 1.2)  # strengthen objects (our Appendix.F)
             else:
                 s *= torch.exp(-alpha*s)  # suppression EOT (our main paper)
 
